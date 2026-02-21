@@ -38,7 +38,7 @@ The project requires **Go (>= 1.20)** and **Node.js** (for building the widget).
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/[your-handle]/vixel-nexus
+git clone https://github.com/GreyyDaze/vixel-nexus
 
 # 2. Start the Go Server
 cd vixel-nexus
