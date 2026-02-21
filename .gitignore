@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Mac OS
+.DS_Store
+
+# Go Environment
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Environment Variables
+.env
+.env.local
