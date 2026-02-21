@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merchant Site | Local Simulation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Outfit", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-50 min-h-screen flex flex-col items-center justify-center p-8"
+  >
+    <div
+      class="max-w-xl w-full bg-white rounded-3xl p-12 shadow-2xl shadow-slate-200 space-y-8 border border-slate-100"
+    >
+      <div class="space-y-2">
+        <h1
+          class="text-4xl font-bold text-slate-900 tracking-tight text-center"
+        >
+          Checkout Prototype
+        </h1>
+        <p class="text-slate-500 text-center text-lg">
+          This is a simulated merchant website integrating the
+          <b>Vixel Sentinel Widget</b>.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-slate-600 font-medium">Standard Plan</span>
+          <span class="text-2xl font-bold text-slate-900">$149.00</span>
+        </div>
+        <p class="text-sm text-slate-500">
+          Includes end-to-end payment processing and fraud integrity monitoring.
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center gap-4">
+        <!-- VIXEL SENTINEL WIDGET INTEGRATION -->
+        <nexus-checkout
+          data-amount="149.00"
+          data-currency="USD"
+        ></nexus-checkout>
+
+        <p
+          class="text-[10px] text-slate-400 uppercase tracking-widest font-bold"
+        >
+          Integration: Zero-Dependency TypeScript + Shadow DOM
+        </p>
+      </div>
+    </div>
+
+    <!-- LOAD THE NEXUS WIDGET -->
+    <script src="/static/js/nexus.js"></script>
+  </body>
+</html>

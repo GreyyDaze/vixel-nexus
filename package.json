@@ -1,0 +1,11 @@
+{
+  "name": "nexus-widget",
+  "version": "1.0.0",
+  "description": "Zero-dependency Payment Widget for Vixel Nexus",
+  "scripts": {
+    "build": "tsc scripts/nexus.ts --outFile static/js/nexus.js --module system --target es6 --lib dom,es2015 --removeComments"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

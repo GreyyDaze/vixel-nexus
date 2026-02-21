@@ -1,0 +1,45 @@
+package components
+
+import (
+	"fmt"
+	"vixel-nexus/internal/models"
+)
+
+templ Dashboard(stats models.IntegrityHealth, transactions []models.Transaction) {
+	@Layout("Merchant Overview") {
+		<div class="space-y-8">
+			<!-- Stats Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				@StatCard("Integrity Uptime", fmt.Sprintf("%.2f%%", stats.Uptime), "0.02%", true)
+				@StatCard("Fraud Rate", fmt.Sprintf("%.2f%%", stats.FraudRate), "12%", false)
+				@StatCard("Avg Response", fmt.Sprintf("%dms", stats.ResponseTime), "34ms", true)
+			</div>
+
+			<!-- Transaction Feed Section -->
+			<div class="space-y-4">
+				<div class="flex justify-between items-end">
+					<div class="space-y-1">
+						<h2 class="text-xl font-bold text-white tracking-tight">Live Integrity Feed</h2>
+						<p class="text-sm text-slate-500">Real-time status of global transaction routing.</p>
+					</div>
+					<div class="flex gap-2">
+						<button class="px-4 py-2 bg-slate-900 hover:bg-slate-800 rounded-xl text-sm font-semibold transition-colors border border-slate-800">
+							Export CSV
+						</button>
+						<button 
+							hx-get="/transactions" 
+							hx-target="#transaction-body" 
+							hx-swap="afterbegin"
+							class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-sm font-bold text-white transition-colors shadow-lg shadow-indigo-500/20">
+							Simulate Capture
+						</button>
+					</div>
+				</div>
+
+				<div hx-get="/transactions" hx-trigger="every 10s" hx-target="#transaction-body" hx-swap="afterbegin">
+					@TransactionTable(transactions)
+				</div>
+			</div>
+		</div>
+	}
+}
